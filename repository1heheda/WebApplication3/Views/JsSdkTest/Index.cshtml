@@ -1,0 +1,73 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+</head>
+<body>
+    <div> 
+       
+        <input type="button" value="分享" style="width:100px;height:30px;text-align:center;" onclick="ShareApp()" />
+
+
+    </div>
+
+
+    <script type="text/javascript">
+        wx.config({
+            debug: false,
+            appId: "后台生成",
+            timestamp: "后台生成",
+            nonceStr: "后台生成",
+            signature: "后台生成",
+            jsApiList: [
+            "onMenuShareTimeline",
+            "onMenuShareAppMessage",
+            "onMenuShareQQ",
+            "onMenuShareWeibo",
+            "hideMenuItems",
+            "showMenuItems",
+            "hideAllNonBaseMenuItem",
+            "showAllNonBaseMenuItem"]
+        });
+
+        function ShareApp(title, url) {
+            wx.ready(function () {
+                wx.onMenuShareAppMessage({
+                    title: title,
+                    link: url,
+                    imgUrl: '图片地址',
+                    trigger: function (res) {
+                    },
+                    success: function (res) {
+                        alert('分享成功!');
+                      //  hideShare();
+                    },
+                    cancel: function (res) {
+                        //hideShare();
+                    },
+                    fail: function (res) {
+                        alert('分享失败!');
+                      //  hideShare();
+                    }
+                });
+
+            });
+            wx.error(function (res) {
+                alert(res.errMsg);
+            });
+        }
+
+    </script>
+</body>
+
+
+
+</html>

@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "JsValidate";
+}
+
+<h2>JsValidate</h2>
+
+<script src="~/Content/picker-master/jquery-1.10.2.min.js"></script>
+
+<script type="text/javascript">
+
+    var teststr = "91330784055514180N";
+
+    $(function () {
+        alert('1');
+        alert(IsShehuiXinYongCode(teststr));
+    })
+
+
+function IsShehuiXinYongCode(ocode) {
+    var validetext = /^[1-9A-GY]{1}[1239]{1}[1-5]{1}[0-9]{5}[0-9A-Z]{10}$/;
+    //var re = new RegExp(validetext);
+    if (validetext.test(ocode)) {
+        return true;
+    }
+    return false;
+}
+</script>

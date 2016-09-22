@@ -1,0 +1,59 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="~/scripts/jquery-1.10.2.min.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <title>PropTest</title>
+</head>
+<body>
+    <div id="testdiv">
+        <img src="aa" /> 
+        <img src=""  />
+        <img src="cc" />
+    </div>
+    <input type="button" value="test" onclick="proptest()" />
+    <script type="text/javascript">
+
+
+        function proptest() {
+          //  alert($("#testdiv img").length);
+            //alert($("img").eq(0).prop("src"));
+            //alert($("img").eq(1).prop("src"));
+
+            //if ($("img").eq(0).prop("src")) {
+            //    alert('0 is exists');
+            //}
+            //if ($("img").eq(1).prop("src")) {
+            //    alert('1 is exists');
+            //}
+            var xx = ifImgFilled()
+            alert(xx);
+            if (xx==false) {
+                alert('not exists');
+            }
+        }
+        function ifImgFilled() {
+            var result = true;
+            $("img").each(function () {
+                var objthis = $(this);
+                alert(objthis.prop("src"));
+                if (objthis.prop("src") == '') {
+                    alert('emtpy');
+                    result = false;
+                    return false;
+                }
+                else {
+                    alert('not emtpy');
+                }
+            });
+            return result;
+        }
+    </script>
+</body>
+</html>
